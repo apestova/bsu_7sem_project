@@ -14,3 +14,13 @@ export const addTodo = createAsyncThunk(
         return todo;
     }
 );
+
+export const deleteTodo = createAsyncThunk(
+    '@todos/deleteTodo',
+    (index: number) => index
+);
+
+export const changeIsCompleted = createAsyncThunk(
+    '@todos/changeIsCompleted',
+    (index: number) => index
+);
