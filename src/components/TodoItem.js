@@ -54,7 +54,7 @@ export const TodoItem = ({ todo, position }) => {
         <div
             key={position}
             className="todos-list__item"
-            style={{ backgroundColor: todo.isCompleted ? "" : "rgb(148, 118, 118)"}}
+            style={{ backgroundColor: todo.isCompleted ? "rgb(125, 154, 125)" : "rgb(148, 118, 118)" }}
         >
             <div className="todos-list__item__text" onClick={addEditMode}>
                 {isEditMode ?

@@ -72,7 +72,6 @@ body {
   word-break: break-word;
   border: 2px solid black;
   border-radius: 4px;
-  background-color: rgb(125, 154, 125);
 }
 
 .todos-list__completed {
