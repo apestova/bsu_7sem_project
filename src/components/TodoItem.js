@@ -1,6 +1,6 @@
 import { IconButton, TextField } from "@material-ui/core";
 import { changeIsCompleted, deleteTodo, editTodo } from "../actions/todos";
-import { CheckCircle, CheckCircleOutline, Close, Delete, Done } from "@material-ui/icons";
+import { CheckCircleOutline, Close, Delete, Done } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 
@@ -51,7 +51,11 @@ export const TodoItem = ({ todo, position }) => {
     };
 
     return (
-        <div key={position} className="todos-list__item">
+        <div
+            key={position}
+            className="todos-list__item"
+            style={{ backgroundColor: todo.isCompleted ? "" : "rgb(148, 118, 118)"}}
+        >
             <div className="todos-list__item__text" onClick={addEditMode}>
                 {isEditMode ?
                     <TextField
@@ -82,7 +86,7 @@ export const TodoItem = ({ todo, position }) => {
                     </>
                 }
                 <IconButton onClick={onChangeIsCompleted}>
-                    {todo.isCompleted ? <CheckCircle style={{ color: "green" }} /> : <CheckCircleOutline style={{ color: "red" }} />}
+                    {todo.isCompleted ? <CheckCircleOutline style={{ color: "green" }} /> : <CheckCircleOutline style={{ color: "red" }} />}
                 </IconButton>
                 <IconButton onClick={onDelete} style={{ color: "black" }}>
                     <Delete />
