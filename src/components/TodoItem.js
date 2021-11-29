@@ -50,6 +50,11 @@ export const TodoItem = ({ todo, position }) => {
         removeEditMode();
     };
 
+    const onEditEnterPress = (e) => {
+        if (e.key === "Enter" && !editTodoError)
+            onEditSubmit();
+    };
+
     return (
         <div
             key={position}
@@ -65,6 +70,7 @@ export const TodoItem = ({ todo, position }) => {
                         value={editText}
                         variant="outlined"
                         onChange={onEditChange}
+                        onKeyPress={onEditEnterPress}
                     />
                     : todo.text
                 }
