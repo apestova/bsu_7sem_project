@@ -15,6 +15,11 @@ export const addTodo = createAsyncThunk(
     }
 );
 
+export const editTodo = createAsyncThunk(
+    '@todos/editTodo',
+    ({ text, position }: { text: string, position: number }) => ({ text, position })
+);
+
 export const deleteTodo = createAsyncThunk(
     '@todos/deleteTodo',
     (index: number) => index

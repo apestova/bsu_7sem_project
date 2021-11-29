@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addTodo, changeIsCompleted, deleteTodo, TodoItemType } from "../actions/todos";
+import { addTodo, changeIsCompleted, deleteTodo, editTodo, TodoItemType } from "../actions/todos";
 
 const defaultState: TodoItemType[] = [];
 
@@ -10,6 +10,11 @@ export const todosReducer = createSlice({
     extraReducers: builder => {
         builder.addCase(addTodo.fulfilled, (state, { payload }) => [...state, payload]);
         builder.addCase(addTodo.rejected, () => alert("Error"));
+        builder.addCase(editTodo.fulfilled, (state, { payload: { text, position } }) => {
+            state[position].text = text;
+
+            return state;
+        });
         builder.addCase(deleteTodo.fulfilled, (state, { payload }) => {
             state.splice(payload, 1);
             return state;
