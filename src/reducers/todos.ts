@@ -20,7 +20,12 @@ export const todosReducer = createSlice({
             return state;
         });
         builder.addCase(changeIsCompleted.fulfilled, (state, { payload }) => {
-            state[payload].isCompleted = !state[payload].isCompleted;
+            const changedTodo = state[payload];
+            changedTodo.isCompleted = !changedTodo.isCompleted;
+
+            state.splice(payload, 1);
+            state.unshift(changedTodo);
+
             return state;
         });
     },
