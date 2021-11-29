@@ -20,12 +20,17 @@ export const MainPage = () => {
             setNewTodoError(false);
 
         setNewTodo(newValue);
-    }
+    };
 
     const onSubmit = () => {
         setNewTodo("");
         dispatch(addTodo({ text: newTodo, isCompleted: false }));
-    }
+    };
+
+    const onAddEnterPress = (e) => {
+        if (e.key === "Enter" && !newTodoError)
+            onSubmit();
+    };
 
     return (
         <div className="main-page">
@@ -37,6 +42,7 @@ export const MainPage = () => {
                     placeholder="New ToDo(max. 40 chars)"
                     variant="outlined"
                     onChange={onInputChange}
+                    onKeyPress={onAddEnterPress}
                 />
                 {addButtonError ?
                     <Button id="add-button" disabled style={{ backgroundColor: "darkgray", color: "white" }}>
