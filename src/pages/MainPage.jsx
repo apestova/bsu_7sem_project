@@ -3,7 +3,7 @@ import { Button, TextField } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { getTodos } from "../selectors/selectors";
 import { TodosList } from "../components/TodosList";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export const MainPage = () => {
     const dispatch = useDispatch();

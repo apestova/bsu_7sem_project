@@ -2,7 +2,7 @@ import { IconButton, TextField } from "@material-ui/core";
 import { changeIsCompleted, deleteTodo, editTodo } from "../actions/todos";
 import { CheckCircleOutline, Close, Delete, Done } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export const TodoItem = ({ todo, position }) => {
     const dispatch = useDispatch();
